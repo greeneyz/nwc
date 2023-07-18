@@ -73,7 +73,7 @@ h6,
 .back-to-top {
     position: fixed;
     display: none;
-    right: 45px;
+    right: 33px;
     bottom: 130px;
     z-index: 99;
 }
