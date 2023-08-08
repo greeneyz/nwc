@@ -52,6 +52,7 @@
                         document.getElementById('quote_name').value = "";
                         document.getElementById('quote_email').value = "";
                         document.getElementById('quote_phone').value = "";
+                        document.getElementById('quote_city').value = "";
                         document.getElementById('quote_detail').value = "";
                     }, function (error) {
                         console.log('FAILED...', error);
@@ -183,6 +184,13 @@
                             </div>
                         </div>
                         <div class="col-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" name="quote_city" id="quote_city"
+                                    placeholder="">
+                                <label for="form-floating-1">City</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
                             <button class="btn btn-primary w-100 h-100" type="submit">Request A Quote</button>
                         </div>
                     </div>
