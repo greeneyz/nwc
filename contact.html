@@ -46,9 +46,13 @@
                 // generate a five digit number for the contact_number variable
                 //this.contact_number.value = Math.random() * 100000 | 0;
                 // these IDs from the previous steps
-                emailjs.sendForm('default_service', 'contact_form', this)
+                emailjs.sendForm('default_service', 'template_i8110dh', this)
                     .then(function () {
-                        console.log('SUCCESS!');
+                        alert('Your message has been sent!');
+                        document.getElementById('fullname').value = "";
+                        document.getElementById('email').value = "";
+                        document.getElementById('subject').value = "";
+                        document.getElementById('message').value = "";
                     }, function (error) {
                         console.log('FAILED...', error);
                     });
@@ -171,27 +175,27 @@
                     <div class="row g-3">
                         <div class="col-6">
                             <div class="form-floating">
-                                <input type="text" class="form-control" name="name" id="form-floating-1"
+                                <input type="text" class="form-control" name="name" id="fullname"
                                     placeholder="John Doe">
                                 <label for="form-floating-1">Full Name</label>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-floating">
-                                <input type="email" class="form-control" id="form-floating-2" name="email"
+                                <input type="email" class="form-control" id="email" name="email"
                                     placeholder="name@example.com">
                                 <label for="form-floating-2">Email address</label>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="form-floating-3" placeholder="Subject">
+                                <input type="text" class="form-control" id="subject" placeholder="Subject">
                                 <label for="form-floating-3">Subject</label>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-floating">
-                                <textarea class="form-control" placeholder="Message" id="form-floating-4"
+                                <textarea class="form-control" placeholder="Message" id="message"
                                     style="height: 150px"></textarea>
                                 <label for="form-floating-4">Message</label>
                             </div>
