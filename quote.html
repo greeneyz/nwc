@@ -30,6 +30,35 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <!-- For email -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            // https://dashboard.emailjs.com/admin/account
+            emailjs.init('j_3MLrokmli2gaVkF');
+        })();
+    </script>
+    <script type="text/javascript">
+        window.onload = function () {
+            document.getElementById('quote-form').addEventListener('submit', function (event) {
+                event.preventDefault();
+                // generate a five digit number for the contact_number variable
+                //this.contact_number.value = Math.random() * 100000 | 0;
+                // these IDs from the previous steps
+                emailjs.sendForm('default_service', 'template_1lafzoa', this)
+                    .then(function () {
+                        alert('Your message has been sent!');
+                        document.getElementById('quote_name').value = "";
+                        document.getElementById('quote_email').value = "";
+                        document.getElementById('quote_phone').value = "";
+                        document.getElementById('quote_detail').value = "";
+                    }, function (error) {
+                        console.log('FAILED...', error);
+                    });
+            });
+        }
+    </script>
 </head>
 
 <div>
@@ -123,29 +152,34 @@
                     Our pricing starts at 500 euros for the package and may vary depending on the specific services
                     needed.
                 </p>
-                <form>
+                <form id="quote-form" name="quote-form">
                     <div class="row gx-3">
                         <div class="col-6">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="form-floating-1" placeholder="John Doe">
+                                <input type="text" class="form-control" name="quote_name" id="quote_name"
+                                    placeholder="">
                                 <label for="form-floating-1">Full Name</label>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-floating mb-3">
-                                <input type="email" class="form-control" id="form-floating-2"
+                                <input type="email" class="form-control" name="quote_email" id="quote_email"
                                     placeholder="name@example.com">
                                 <label for="form-floating-2">Email address</label>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-floating">
-                                <select class="form-select" id="floatingSelect" aria-label="Financial Consultancy">
-                                    <option selected>Bachelor Admission</option>
-                                    <option value="1">Masters Admission</option>
-                                    <option value="2">Other Matters</option>
-                                </select>
-                                <label for="floatingSelect">Select A Service</label>
+                                <input type="text" class="form-control" name="quote_phone" id="quote_phone"
+                                    placeholder="">
+                                <label for="form-floating-1">Phone</label>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-floating">
+                                <textarea class="form-control" placeholder="Write in detail" name="quote_detail"
+                                    id="quote_detail" style="height: 150px"></textarea>
+                                <label for="form-floating-1">Write in detail</label>
                             </div>
                         </div>
                         <div class="col-6">
