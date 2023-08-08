@@ -51,8 +51,8 @@
                         alert('Your message has been sent!');
                         document.getElementById('fullname').value = "";
                         document.getElementById('email').value = "";
-                        document.getElementById('subject').value = "";
-                        document.getElementById('message').value = "";
+                        document.getElementById('contact_subject').value = "";
+                        document.getElementById('contact_message').value = "";
                     }, function (error) {
                         console.log('FAILED...', error);
                     });
@@ -189,13 +189,13 @@
                         </div>
                         <div class="col-12">
                             <div class="form-floating">
-                                <input type="text" class="form-control" id="subject" placeholder="Subject">
+                                <input type="text" class="form-control" id="contact_subject" placeholder="Subject">
                                 <label for="form-floating-3">Subject</label>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-floating">
-                                <textarea class="form-control" placeholder="Message" id="message"
+                                <textarea class="form-control" placeholder="Message" id="contact_message"
                                     style="height: 150px"></textarea>
                                 <label for="form-floating-4">Message</label>
                             </div>
